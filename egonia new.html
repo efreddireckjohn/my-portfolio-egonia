@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ceb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freddireck John | Digital Craftsman</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #10b981; 
+            --dark: #0f172a;    
+            --bg: #f0fdfa;      
+            --card: #ffffff;
+            --glass: rgba(255, 255, 255, 0.85);
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--dark);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo { font-family: 'Poppins'; font-weight: 900; font-size: 1.5rem; color: var(--dark); text-decoration: none; }
+
+        .nav-links { display: flex; list-style: none; gap: 30px; margin: 0; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 10%;
+            min-height: 90vh;
+            gap: 50px;
+        }
+
+        .hero-text { flex: 1; }
+        .hero-text p { font-weight: 700; font-size: 1.1rem; color: var(--primary); margin: 0; letter-spacing: 2px; }
+        .hero-text h1 { 
+            font-family: 'Poppins'; 
+            font-size: clamp(3rem, 7vw, 5rem); 
+            line-height: 0.9; 
+            margin: 20px 0; 
+            letter-spacing: -2px;
+        }
+
+        .hero-img { flex: 1; display: flex; justify-content: center; }
+        .avatar-morph {
+            width: 350px;
+            height: 350px;
+            background: var(--primary);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            border: 5px solid var(--dark);
+            overflow: hidden;
+            animation: morphing 8s ease-in-out infinite;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+        }
+
+        @keyframes morphing {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+        }
+
+        /* --- PROJECTS SECTION --- */
+        #projects { padding: 100px 10%; }
+        .section-tag { color: var(--primary); font-weight: 800; letter-spacing: 3px; font-size: 0.8rem; display: block; margin-bottom: 10px; }
+        .section-header { font-family: 'Poppins'; font-size: 3.5rem; margin-bottom: 60px; }
+
+        .project-row {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 120px;
+        }
+
+        .project-row:nth-child(even) { flex-direction: row-reverse; }
+
+        .project-visual {
+            flex: 1.5;
+            height: 400px;
+            background: #e2e8f0;
+            border-radius: 40px;
+            box-shadow: 20px 20px 0px rgba(16, 185, 129, 0.1);
+            transition: 0.5s;
+        }
+
+        .project-row:hover .project-visual { transform: scale(1.02); }
+
+        .project-detail { flex: 1; }
+        .project-detail h3 { font-family: 'Poppins'; font-size: 2.5rem; margin: 10px 0; }
+        .tech-pill { 
+            display: inline-block; 
+            padding: 6px 16px; 
+            background: #d1fae5; 
+            color: #065f46; 
+            border-radius: 50px; 
+            font-size: 0.75rem; 
+            font-weight: 800; 
+            margin: 0 8px 10px 0;
+            text-transform: uppercase;
+        }
+
+        /* --- ABOUT (DARK MODE STYLE) --- */
+        #about { 
+            background: var(--dark); 
+            color: white; 
+            padding: 120px 10%; 
+            border-radius: 80px 80px 0 0; 
+        }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .stat-grid { display: flex; gap: 40px; margin-top: 40px; }
+        .stat-card h2 { font-size: 4rem; color: var(--primary); margin: 0; font-family: 'Poppins'; }
+        .stat-card p { opacity: 0.6; font-weight: 600; }
+
+        /* --- CONTACT (MODERN) --- */
+        #contact { padding: 120px 10%; text-align: center; background: white; }
+        .contact-wrap { max-width: 900px; margin: 0 auto; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 60px 0;
+        }
+        .contact-box {
+            padding: 50px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .mail-box { background: #fff5f5; color: #d44638; }
+        .fb-box { background: #f0f4ff; color: #1877f2; }
+        
+        .contact-box:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
+        .contact-box i { font-size: 3rem; margin-bottom: 15px; }
+        .contact-box b { font-size: 1.5rem; font-family: 'Poppins'; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 968px) {
+            .hero, .project-row, .about-grid { flex-direction: column; text-align: center; }
+            .project-row:nth-child(even) { flex-direction: column; }
+            .hero-img { order: -1; }
+            .avatar-morph { width: 280px; height: 280px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">FREDDIRECK.</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#projects">Works</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>WEB DEVELOPER & DESIGNER</p>
+            <h1>CREATING<br><span style="color: var(--primary);">- DIGITAL</span><br>MAGIC.</h1>
+            <p style="max-width: 500px; line-height: 1.6; opacity: 0.8;">I turn complex problems into simple, beautiful, and intuitive digital solutions.</p>
+            <br>
+            <a href="#projects" style="background: var(--dark); color: white; padding: 18px 35px; border-radius: 15px; text-decoration: none; font-weight: 800; display: inline-block;">MY WORK ↓</a>
+        </div>
+        <div class="hero-img">
+            <div class="avatar-morph">
+                <img src="gggg.jpg" alt="Avatar" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="reveal">
+        <span class="section-tag">SELECTED WORKS</span>
+        <h2 class="section-header">Stuff I've Built</h2>
+
+        <div class="project-row">
+            <div class="project-visual">
+                <img src="https://via.placeholder.com/600x400" style="width:100%; height:100%; object-fit:cover; border-radius: 40px;">
+            </div>
+            <div class="project-detail">
+                <span class="tech-pill">VUE.JS</span><span class="tech-pill">FIREBASE</span>
+                <h3>Pelikula App</h3>
+                <p>Usa ka cinematic hub diin ang mga movie lovers mahimong mag-explore sa ilang paboritong salida.</p>
+                <a href="#" style="color: var(--primary); font-weight: 800; text-decoration: none; font-size: 1.1rem;">VIEW CASE STUDY →</a>
+            </div>
+        </div>
+
+        <div class="project-row">
+            <div class="project-visual">
+                <img src="https://via.placeholder.com/600x400" style="width:100%; height:100%; object-fit:cover; border-radius: 40px;">
+            </div>
+            <div class="project-detail">
+                <span class="tech-pill">AI</span><span class="tech-pill">NUXT.JS</span>
+                <h3>Resignation Generator</h3>
+                <p>AI-powered tool nga motabang nimo sa paghimo og professional nga sulat sa pag-resign sulod sa pipila ka segundo.</p>
+                <a href="#" style="color: var(--primary); font-weight: 800; text-decoration: none; font-size: 1.1rem;">VIEW CASE STUDY →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="reveal">
+        <div class="about-grid">
+            <div>
+                <h2 style="font-family: 'Poppins'; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1;">I focus on the details so you don't have to.</h2>
+                <div class="stat-grid">
+                    <div class="stat-card"><h2>3+</h2><p>Years Exp.</p></div>
+                    <div class="stat-card"><h2>20+</h2><p>Projects Done</p></div>
+                </div>
+            </div>
+            <div>
+                <p style="font-size: 1.2rem; line-height: 1.8; opacity: 0.7;">Based in the Philippines, I collaborate with brands globally to create digital products that stand out. My approach is simple: clean code and bold design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <div class="contact-wrap">
+            <span class="section-tag">READY TO START?</span>
+            <h2 class="section-header" style="font-size: 4.5rem;">Let's Talk.</h2>
+            
+            <div class="contact-grid">
+                <a href="mailto:freddireck@gmail.com" class="contact-box mail-box">
+                    <i class="fas fa-envelope"></i>
+                    <b>Gmail</b>
+                    <p>freddireck@gmail.com</p>
+                </a>
+                <a href="https://www.facebook.com/freddireck.john.egonia.2027" target="_blank" class="contact-box fb-box">
+                    <i class="fab fa-facebook-f"></i>
+                    <b>Facebook</b>
+                    <p>Connect with me</p>
+                </a>
+            </div>
+
+            <p style="opacity: 0.4; font-weight: 600; margin-top: 40px;">&copy; 2026 FREDDIRECK JOHN. Gihimo para sa Excellence.</p>
+        </div>
+    </section>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+
+</body>
+</html>
